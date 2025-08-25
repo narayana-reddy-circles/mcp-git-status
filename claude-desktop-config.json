@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "git-status": {
+      "command": "node",
+      "args": ["/Users/narayan/Developer/qoder/dist/index.js"],
+      "description": "Git status and log tools for repository management"
+    }
+  }
+}

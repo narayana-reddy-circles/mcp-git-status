@@ -22,6 +22,11 @@ npm install
 npm run build
 ```
 
+4. Test the server:
+```bash
+npm test
+```
+
 ## Usage
 
 ### Running the Server
@@ -50,11 +55,16 @@ Add this server to your Claude Desktop configuration file:
   "mcpServers": {
     "git-status": {
       "command": "node",
-      "args": ["/path/to/your/mcp-git-status-server/dist/index.js"]
+      "args": ["/path/to/your/mcp-git-status-server/dist/index.js"],
+      "description": "Git status and log tools for repository management"
     }
   }
 }
 ```
+
+**Note**: Replace `/path/to/your/mcp-git-status-server` with the actual path to your project directory.
+
+A sample configuration file is included as `claude-desktop-config.json` for reference.
 
 #### Other MCP Clients
 
@@ -139,6 +149,7 @@ The server gracefully handles common error scenarios:
 - `npm run build`: Compile TypeScript to JavaScript
 - `npm run dev`: Run in development mode with tsx
 - `npm start`: Run the compiled server
+- `npm test`: Build and validate the server functionality
 
 ### Project Structure
 
@@ -146,10 +157,34 @@ The server gracefully handles common error scenarios:
 ├── src/
 │   └── index.ts          # Main server implementation
 ├── dist/                 # Compiled JavaScript (generated)
+├── validate-mcp.js       # Validation script for testing
+├── claude-desktop-config.json # Sample Claude Desktop configuration
 ├── package.json          # Project configuration  
 ├── tsconfig.json         # TypeScript configuration
 └── README.md            # This file
 ```
+
+## Validation
+
+The project includes a comprehensive validation script (`validate-mcp.js`) that tests:
+
+- MCP protocol initialization
+- Tool discovery (tools/list)
+- Git status functionality 
+- Git log functionality
+- Error handling for invalid tools
+
+Run validation with:
+```bash
+npm test
+```
+
+The validation script will:
+1. Build the project
+2. Start the MCP server
+3. Test all functionality
+4. Report results
+5. Clean up automatically
 
 ## Requirements
 
