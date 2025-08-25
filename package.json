@@ -9,6 +9,7 @@
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
     "test": "npm run build && node validate-mcp.js",
+    "setup-cursor": "./setup-cursor.sh",
     "prepublishOnly": "npm run build"
   },
   "keywords": [

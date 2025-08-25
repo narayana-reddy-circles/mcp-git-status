@@ -43,6 +43,35 @@ npm run dev
 
 ### Connecting to MCP Clients
 
+#### Cursor IDE
+
+**Project-specific configuration** (recommended for this project):
+Cursor is already configured for this project via `.cursor/mcp.json`.
+
+**Global configuration** (to use in all projects):
+The server is also configured globally. After restarting Cursor, you can ask questions like:
+- "What's the git status of this repository?"
+- "Show me the last 5 commits"
+- "Check if there are any uncommitted changes"
+
+Cursor will automatically use the git-status tools to answer your questions.
+
+**Manual configuration** (if needed):
+Create `~/.cursor/mcp.json` with:
+```json
+{
+  "mcpServers": {
+    "git-status": {
+      "command": "node",
+      "args": ["/Users/narayan/Developer/qoder/dist/index.js"],
+      "description": "Git status and log tools for repository management"
+    }
+  }
+}
+```
+
+**Note**: Replace the path with the actual path to your compiled server.
+
 #### Claude Desktop
 
 Add this server to your Claude Desktop configuration file:
